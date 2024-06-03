@@ -3,7 +3,7 @@
 ### Team Members:
 Kawika Reveira
 Ahmed Elnogoumi
-Mak Trnka
+Mak Trnka 
 
 ## Cooperation Plan
 
