@@ -10,11 +10,37 @@ Ahmed Elnogoumi
 Mak Trnka
 
 ## Getting started:
-
+Install
 git clone https://github.com/Jarvis-CF401/Jarvis-frontend.git
 cd Jarvis-frontend
 npm install
+
+### Configure app
+Any environment configuration steps.
+
+### Start & watch
 npm run dev
+npm start
+
+### Architecture
+Describe how the project is structured.
+
+### Languages & tools
+- OpenAI API
+- React + Vite
+- Axios
+- Express
+- AUTH 0
+- dotenv
+- body-parser
+
+### Change Log
+Version 1.0.0
+
+### Collaborators:
+- Kawika Reveira
+- Ahmed Elnogoumi
+- Mark Trnka
 
 # React + Vite
 
