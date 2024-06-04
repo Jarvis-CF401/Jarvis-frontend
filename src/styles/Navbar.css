@@ -1,0 +1,59 @@
+/* Navbar.css */
+
+.custom-navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-logo {
+  width: 40px; /* Adjust as needed */
+  height: auto;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-color: #fff;
+}
+
+.custom-navbar .nav-link {
+  padding: 0.5rem 1rem;
+}
+
+.custom-navbar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+}
+
+.custom-navbar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 992px) {
+  .custom-navbar .navbar-collapse {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -300px; /* Change the value to adjust the position of the sidebar */
+    background-color: #343a40; /* Change the background color of the sidebar */
+    width: 300px; /* Adjust the width of the sidebar */
+    padding-top: 56px; /* Adjust the top padding of the sidebar */
+    transition: right 0.3s;
+  }
+
+  .custom-navbar .navbar-collapse.show {
+    right: 0;
+  }
+
+  .custom-navbar .navbar-nav {
+    flex-direction: column;
+  }
+
+  .custom-navbar .navbar-nav .nav-link {
+    padding: 10px 20px;
+  }
+
+  .custom-navbar .navbar-toggler {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
