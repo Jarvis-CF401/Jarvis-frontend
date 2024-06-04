@@ -1,5 +1,10 @@
 # Jarvis - Team Agreement
 
+### Team Members:
+Kawika Reveira
+Ahmed Elnogoumi
+Mak Trnka 
+
 ## Cooperation Plan
 
 ## Key Strengths of Each Person:
