@@ -1,10 +1,13 @@
+// App.jsx
 import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/CustomNavbar';
 import ChatComponent from './components/ChatComponent';
+import ChatHistoryComponent from './components/ChatHistoryComponent'; // Import the ChatHistoryComponent
 
 function App() {
   const [importedText, setImportedText] = useState('');
+  const [messages, setMessages] = useState([]); // Lift state up to App component
 
   return (
     <div className="app-container">
@@ -12,9 +15,8 @@ function App() {
          <Navbar />
       </header>
       <main className="main-content">
-       
-        <ChatComponent setImportedText={setImportedText} />
-        
+        <ChatComponent setImportedText={setImportedText} messages={messages} setMessages={setMessages} />
+        <ChatHistoryComponent messages={messages} /> {/* Include the ChatHistoryComponent */}
         <p className="read-the-docs">Read the docs for more info.</p>
       </main>
       <footer className="footer">

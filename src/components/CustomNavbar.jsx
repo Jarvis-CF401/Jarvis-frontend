@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaBars } from 'react-icons/fa'; // Import Font Awesome icon
 
 function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -13,14 +14,10 @@ function Navbar() {
         <a href="/">Logo</a>
       </div>
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <a href="/">Home</a>
-        </li>
-        <li className="nav-item">
-          <a href="/">About</a>
-        </li>
         <li className="nav-item dropdown">
-          <button className="dropdown-btn" onClick={toggleDropdown}>Dropdown</button>
+          <button className="dropdown-btn" onClick={toggleDropdown}>
+            <FaBars /> {/* Menu icon */}
+          </button>
           {dropdownOpen && (
             <div className="dropdown-content">
               <a href="/">Link 1</a>
