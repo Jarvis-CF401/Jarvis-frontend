@@ -1,106 +1,237 @@
-/* App.css */
-
+/* Global styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: #fff;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* Dark background */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  animation: fadeInDown 1s ease; /* Fade in animation */
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .react {
-    filter: invert(80%);
+}
+
+.app-header h1 {
+  margin-bottom: 20px; /* Increased margin */
+  font-size: 3.5em; /* Bigger font size */
+}
+
+.app-header p {
+  font-size: 1.5em; /* Bigger font size */
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.read-the-docs {
+  margin-top: 30px; /* Increased margin */
+  color: #e0e0e0; /* Lighter text color */
+  font-size: 1.2em; /* Bigger font size */
+  animation: fadeInUp 1s ease; /* Fade in animation */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-top: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .card {
-    background-color: #292929;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+  background-color: #333;
+  color: #3acfbb; /* Primary color */
+  text-align: center;
+  padding: 40px; /* Increased padding */
+  animation: fadeInUp 1s ease; /* Fade in animation */
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #333;
+  color: white;
+  width: 100%; /* Full width */
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem; /* Bigger font size */
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0 1rem;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem; /* Bigger font size */
+}
+
+.dropdown-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 1.2rem; /* Bigger font size */
+}
+
+.dropdown-content a:hover {
+  background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ChatComponent styles */
+.chat-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%; /* Full width */
+}
+
+.chat-window {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 800px; /* Keep maximum width */
+  height: 400px; /* Set fixed height */
+  border: 2px solid #3acfbb;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-y: auto; /* Enable vertical scrollbar */
+  margin-bottom: 10px;
+  background-color: #1a1a1a;
+}
+
+.message {
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 70%;
+  word-wrap: break-word;
+  animation-duration: 0.5s;
+}
+
+.message.user {
+  align-self: flex-end; /* Align user message to the right */
+  background-color: #000000; /* User message background color */
+  color: #ffffff; /* White text */
+  animation-name: fadeInRight;
+}
+
+.message.bot {
+  align-self: flex-start; /* Align bot message to the left */
+  color: #ffffff; /* White text */
+  animation-name: fadeInLeft;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
   }
-  
-  .card button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .card button:hover {
-    background-color: #0056b3;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
   }
-  
-  .read-the-docs {
-    font-size: 0.9rem;
-    margin-top: 20px;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .read-the-docs a {
-    color: #007bff;
-  }
-  
-  .read-the-docs a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Navbar styling */
-  .custom-navbar {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #333;
-    background-color: #222;
-  }
-  
-  .navbar-brand {
-    font-size: 1.5rem;
-    color: #fff;
-  }
-  
-  .nav-link,
-  .navbar-brand {
-    color: #fff !important;
-  }
-  
-  .nav-link:hover,
-  .navbar-brand:hover {
-    color: #ccc !important;
-  }
-  
-  .navbar-toggler-icon {
-    background-color: #fff;
-  }
-  
-  .navbar-toggler {
-    border-color: #fff;
-  }
-  
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-nav .nav-link {
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 0.25rem;
-  }
-  
+}
+
+.input-area {
+  width: 100%;
+  max-width: 800px; /* Increased width */
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input[type='text'] {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #3acfbb;
+  background-color: #1a1a1a;
+  color: #ffffff; /* White text */
+  margin-right: 10px;
+}
+
+input[type='text']:focus {
+  border-color: #00bfa5;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3acfbb;
+  color: #ffffff; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00bfa5;
+}
