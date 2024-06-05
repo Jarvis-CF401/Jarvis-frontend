@@ -268,12 +268,14 @@ button:hover {
 /* ChatHistoryComponent styles */
 .chat-history {
   width: 100%;
-  max-width: 800px; /* Limit width */
+  max-width: 400px; /* Limit width */
   background-color: #1a1a1a;
   border: 2px solid #3acfbb;
   border-radius: 8px;
-  padding: 20px;
+  padding: 100px;
   margin-bottom: 20px; /* Add margin */
+  margin-top: 20px; /* Add margin */
+  margin-left: 500px; /* Move to the right */
 }
 
 .history-window {

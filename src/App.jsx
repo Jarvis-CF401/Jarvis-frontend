@@ -15,10 +15,11 @@ function App() {
          <Navbar />
       </header>
       <main className="main-content">
-        <ChatComponent setImportedText={setImportedText} messages={messages} setMessages={setMessages} />
         <ChatHistoryComponent messages={messages} /> {/* Include the ChatHistoryComponent */}
-        <p className="read-the-docs">Read the docs for more info.</p>
-      </main>
+        <ChatComponent setImportedText={setImportedText} messages={messages} setMessages={setMessages} />
+  
+  <p className="read-the-docs">Read the docs for more info.</p>
+</main>
       <footer className="footer">
         <p>&copy; 2024 My Techy App. All rights reserved.</p>
       </footer>
