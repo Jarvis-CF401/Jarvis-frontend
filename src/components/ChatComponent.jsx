@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 
 const ChatComponent = ({ setImportedText }) => {
   const [messages, setMessages] = useState([]);
@@ -9,27 +10,23 @@ const ChatComponent = ({ setImportedText }) => {
     if (input.trim() === '') return;
 
     const userMessage = { text: input, sender: 'user' };
-    setMessages([...messages, userMessage]);
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
 
-    // Call the API (replace with actual API call)
-    const response = await getChatbotResponse(input);
-    const botMessage = { text: response, sender: 'bot' };
+    try {
+      // Call the API
+      const response = await axios.post('/process-code', { message: input });
+      const botMessage = { text: response.data.result, sender: 'bot' };
+      setMessages((prevMessages) => [...prevMessages, userMessage, botMessage]);
+    } catch (error) {
+      console.error('Error fetching bot response:', error);
+      const botMessage = { text: 'Error fetching response. Please try again.', sender: 'bot' };
+      setMessages((prevMessages) => [...prevMessages, userMessage, botMessage]);
+    }
 
-    setMessages([...messages, userMessage, botMessage]);
     setInput('');
     setImportedText(input);
   };
 
-  const getChatbotResponse = async (message) => {
-    // Mock API response
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve("This is a mock response from the bot.");
-      }, 1000);
-    });
-  };
-
-  // Scroll to bottom of chat window when messages change
   useEffect(() => {
     if (chatWindowRef.current) {
       chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight;
