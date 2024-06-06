@@ -5,7 +5,7 @@ const TypewriterComponent = () => {
   return (
     <div className="typewriter-container">
       <Typist cursor={{ show: false }}>
-        <span className="digital-text">I am Jarvis</span>
+        <span className="digital-text">J.A.R.V.I.S.</span>
       </Typist>
     </div>
   );

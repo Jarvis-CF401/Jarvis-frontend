@@ -1,11 +1,11 @@
-// App.jsx
+// App.js
 import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/CustomNavbar';
 import ChatComponent from './components/ChatComponent';
-import ChatHistoryComponent from './components/ChatHistoryComponent';
 import ParticleBackground from './components/ParticleBackground';
-import TypewriterComponent from './components/TypewriterComponent'; // Import the TypewriterComponent
+import TypewriterComponent from './components/TypewriterComponent';
+import OffCanvasChatHistory from './components/OffCanvasChatHistory';
 
 function App() {
   const [importedText, setImportedText] = useState('');
@@ -13,15 +13,17 @@ function App() {
 
   return (
     <div className="app-container">
-      <ParticleBackground /> {/* Add ParticleBackground here */}
+      <ParticleBackground />
       <header className="app-header">
         <Navbar />
-        <TypewriterComponent /> {}
+        <TypewriterComponent />
       </header>
       <main className="main-content">
-        <ChatHistoryComponent messages={messages} />
-        <ChatComponent setImportedText={setImportedText} messages={messages} setMessages={setMessages} />
-
+        <ChatComponent
+          setImportedText={setImportedText}
+          messages={messages}
+          setMessages={setMessages}
+        />
         <p className="read-the-docs">How may I assist you?</p>
       </main>
       <footer className="footer">
@@ -32,4 +34,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,7 +1,6 @@
-
 /* Global styles */
 body {
-  font-family: "Oxygen Mono", Consolas, monaco, monospace;
+  font-family: 'Lucida Console';
   margin: 0;
   padding: 0;
   background-color: #000000; /* Dark background */
@@ -12,13 +11,13 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  position: relative; /* Ensure relative positioning for overlay */
+  position: relative;
 }
 
 .app-header {
-  animation: fadeInDown 1s ease; /* Fade in animation */
-  position: relative; /* Ensure content is above background */
-  z-index: 1; /* Ensure content is above background */
+  animation: fadeInDown 1s ease;
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes fadeInDown {
@@ -33,16 +32,16 @@ body {
 }
 
 .app-header h1 {
-  margin-bottom: 20px; /* Increased margin */
-  font-size: 3.5em; /* Bigger font size */
-  color: #3acfbb; /* Turquoise text */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  margin-bottom: 20px;
+  font-size: 3.5em;
+  color: #3acfbb;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
 }
 
 .app-header p {
-  font-size: 1.5em; /* Bigger font size */
-  color: #3acfbb; /* Turquoise text */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  font-size: 1.5em;
+  color: #3acfbb;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
 }
 
 .main-content {
@@ -51,16 +50,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative; /* Ensure content is above background */
-  z-index: 1; /* Ensure content is above background */
+  position: relative;
+  z-index: 1;
 }
 
 .read-the-docs {
-  margin-top: 30px; /* Increased margin */
-  color: #3acfbb; /* Turquoise text */
-  font-size: 1.2em; /* Bigger font size */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
-  animation: fadeInUp 1s ease; /* Fade in animation */
+  margin-top: 30px;
+  color: #3acfbb;
+  font-size: 1.2em;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
+  animation: fadeInUp 1s ease;
 }
 
 @keyframes fadeInUp {
@@ -75,37 +74,66 @@ body {
 }
 
 .footer {
-  background-color: rgba(51, 51, 51, 0.7); /* Transparent black background */
-  color: rgba(58, 207, 187, 0.7); /* Semi-transparent turquoise text */
-  text-shadow: 0 0 5px rgba(58, 207, 187, 0.7), 0 0 10px rgba(58, 207, 187, 0.7); /* Glow effect */
-  text-align: center;
-  padding: 40px; /* Increased padding */
-  animation: fadeInUp 1s ease; /* Fade in animation */
-  border-radius: 100px;
-  position: relative; /* Ensure content is above background */
-  z-index: 1; /* Ensure content is above background */
+    background-color: rgba(51, 51, 51, 0.7);
+    color: rgba(58, 207, 187, 0.7);
+    text-shadow: 0 0 5px rgba(58, 207, 187, 0.7), 0 0 10px rgba(58, 207, 187, 0.7);
+    text-align: center;
+    padding: 40px;
+    animation: fadeInUp 1s ease;
+    border-radius: 100px;
+    position: relative;
+    z-index: 1;
+    bottom: 10px; /* Adjust this value as needed */
+
+  }
+
+
+/* OffCanvasChatHistory styles */
+.history-window {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: 2px solid #3acfbb;
 }
 
-/* Navbar styles */
+.history-message {
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  word-wrap: break-word;
+  color: #ffffff;
+}
+
+.history-message.user {
+  background-color: #000000;
+}
+
+.history-message.bot {
+  background-color: #3acfbb;
+}
+
+/* Other existing styles */
 .navbar {
-  background-color: rgba(51, 51, 51, 0.7); /* Transparent black background */
-  color: rgba(58, 207, 187, 0.7); /* Semi-transparent turquoise text */
-  width: 98%; /* Full width */
+  background-color: rgba(51, 51, 51, 0.7);
+  color: rgba(58, 207, 187, 0.7);
+  width: 98%;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-shadow: 0 0 5px rgba(58, 207, 187, 0.7), 0 0 10px rgba(58, 207, 187, 0.7); /* Glow effect */
-  z-index: 1000; /* Higher z-index than particle background */
+  text-shadow: 0 0 5px rgba(58, 207, 187, 0.7), 0 0 10px rgba(58, 207, 187, 0.7);
+  z-index: 1000;
   border-radius: 100px;
-  position: relative; /* Ensure content is above background */
+  position: relative;
 }
 
 .navbar-brand a {
-  color: #3acfbb; /* Turquoise text */
+  color: #3acfbb;
   text-decoration: none;
-  font-size: 1.8rem; /* Bigger font size */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  font-size: 1.8rem;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
 }
 
 .navbar-nav {
@@ -118,19 +146,19 @@ body {
 }
 
 .nav-item a {
-  color: #3acfbb; /* Turquoise text */
+  color: #3acfbb;
   text-decoration: none;
-  font-size: 1.2rem; /* Bigger font size */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
 }
 
 .dropdown-btn {
   background-color: transparent;
-  color: #3acfbb; /* Turquoise text */
+  color: #3acfbb;
   border: none;
   cursor: pointer;
-  font-size: 1.8rem; /* Adjust font size for icon */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  font-size: 1.8rem;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
 }
 
 .dropdown-content {
@@ -143,12 +171,12 @@ body {
 }
 
 .dropdown-content a {
-  color: #3acfbb; /* Turquoise text */
+  color: #3acfbb;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  font-size: 1rem; /* Bigger font size */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  font-size: 1rem;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
 }
 
 .dropdown-content a:hover {
@@ -162,25 +190,25 @@ body {
 /* ChatComponent styles */
 .chat-component {
   display: flex;
+  font-family: 'Lucida Console';
   flex-direction: column;
   align-items: center;
   height: 100%;
-  width: 100%; /* Full width */
+  width: 100%;
 }
 
 .chat-window {
   flex-grow: 1;
   width: 100%;
-  max-width: 800px; /* Keep maximum width */
-  height: 400px; /* Set fixed height */
+  max-width: 800px;
+  height: 400px;
   border: 2px solid #3acfbb;
   border-radius: 8px;
-  padding: 20px;
-  overflow-y: auto; /* Enable vertical scrollbar */
+  padding: 50px;
+  overflow-y: auto;
   margin-bottom: 20px;
-  background-color: rgba(0, 0, 0, 0.849); /* Adjusted background color with transparency */
-  animation: glow 1.5s infinite alternate; /* Add glow animation */
-
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: glow 1.5s infinite alternate;
 }
 
 @keyframes glow {
@@ -198,20 +226,22 @@ body {
   border-radius: 5px;
   max-width: 70%;
   word-wrap: break-word;
+  font-family: 'Lucida Console';
   animation-duration: 0.5s;
 }
 
 .message.user {
-  align-self: flex-end; /* Align user message to the right */
-  background-color: #000000; /* User message background color */
-  color: #3acfbb; /* Turquoise text */
-  text-shadow: 0 0 7px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  align-self: flex-end;
+  background-color: #000000;
+  color: #3acfbb;
+  text-shadow: 0 0 7px #3acfbb, 0 0 10px #3acfbb;
   animation-name: fadeInRight;
+  font-family: 'Lucida Console';
 }
 
 .message.bot {
-  align-self: flex-start; /* Align bot message to the left */
-  color: #ffffff; /* Change bot message text color to white */
+  align-self: flex-start;
+  color: #ffffff;
   animation-name: fadeInLeft;
   animation-duration: 5s;
   animation-name: typing;
@@ -253,7 +283,7 @@ body {
 
 .input-area {
   width: 100%;
-  max-width: 800px; /* Increased width */
+  max-width: 910px;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -261,15 +291,14 @@ body {
 
 input[type='text'] {
   flex-grow: 1;
-  padding: 15px; /* Increased padding */
-  font-size: 1.2em; /* Increased font size */
+  padding: 12px;
+  font-size: 1em;
   border-radius: 5px;
   border: 1px solid #3acfbb;
   background-color: #1a1a1a;
-
-
-  color: #ffffff; /* Turquoise text */
+  color: #ffffff;
   margin-right: 10px;
+  font-family: 'Lucida Console', Monaco, monospace;
 }
 
 input[type='text']:focus {
@@ -281,8 +310,8 @@ button {
   border: none;
   border-radius: 5px;
   background-color: #3acfbb;
-  color: #ffffff; /* Turquoise text */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  color: #ffffff;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -291,94 +320,56 @@ button:hover {
   background-color: #00bfa5;
 }
 
-/* ChatHistoryComponent styles */
-.chat-history {
-  width: 100%;
-  max-width: 135px; /* Limit width */
-  background-color: #08070f;
-  border: 2px solid #3acfbb;
-  border-radius: 8px;
-  padding: 140px;
-  margin-bottom: 20px; /* Add margin */
-  margin-top: 20px; /* Add margin */
-  margin-left: 420px; /* Move to the right */
-}
-
-.history-window {
-  max-height: 200px; /* Limit height */
-  overflow-y: auto; /* Enable vertical scrollbar */
-}
-
-.history-message {
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 5px;
-  max-width: 70%;
-  word-wrap: break-word;
-  color: #ffffff; /* White text color */
-}
-
-.history-message.user {
-  background-color: #000000; /* User message background color */
-}
-
-.history-message.bot {
-  background-color: #3acfbb; /* Bot message background color */
-}
-
-/* Animation for fadeInUp */
-.history-window {
-  animation: fadeInUp 1s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* App.css */
+/* Other existing styles */
 .background-image {
   width: 100%;
-  height: 100px; /* Adjust height as needed */
+  height: 100px;
   background-image: url('./assets/Jarvis.gif');
   background-size: cover;
   background-position: center;
 }
 
 .main-content {
-  position: relative; /* Ensure the background image stays within the main content */
+  position: relative;
 }
 
-#matrix {
+#tsparticles {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Lower z-index than all other elements */
+  z-index: -1;
 }
 
 .typewriter-container {
-  position: absolute; /* Position the typewriter component */
-  top: -10px; /* Align to the top */
-  left: 50%; /* Move to the horizontal center */
-  transform: translateX(-50%); /* Center horizontally */
-  text-align: center; /* Center the text */
-  padding: 20px;
-  margin-top: 20px; /* Adjust margin-top as needed */
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 9.5px;
+  margin-top: 20px;
   z-index: 1000;
+
+  animation: blink-animation 5s infinite;
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .digital-text {
-  font-family: 'Digital', 'Oxygen Mono', Consolas, monaco, monospace; /* Use a digital font or monospace */
-  font-size: 2em; /* Adjust size as needed */
-  color: #3acfbb; /* Turquoise text color */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  font-family: 'Courier New';
+  font-size: 3em;
+  color: #3acfbb;
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb;
 }
-

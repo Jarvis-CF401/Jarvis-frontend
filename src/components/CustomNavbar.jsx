@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa'; // Import Font Awesome icon
 import Logo from '../assets/logo.jpg'; // Import logo image
-import TypewriterComponent from './TypewriterComponent'; // Import the TypewriterComponent
-
 
 function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
