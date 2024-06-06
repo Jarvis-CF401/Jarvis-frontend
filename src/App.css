@@ -1,9 +1,10 @@
+
 /* Global styles */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Oxygen Mono", Consolas, monaco, monospace;
   margin: 0;
   padding: 0;
-  background-color: #1a1a1a; /* Dark background */
+  background-color: #000000; /* Dark background */
   color: #3acfbb; /* Turquoise text */
 }
 
@@ -11,10 +12,13 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative; /* Ensure relative positioning for overlay */
 }
 
 .app-header {
   animation: fadeInDown 1s ease; /* Fade in animation */
+  position: relative; /* Ensure content is above background */
+  z-index: 1; /* Ensure content is above background */
 }
 
 @keyframes fadeInDown {
@@ -47,6 +51,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative; /* Ensure content is above background */
+  z-index: 1; /* Ensure content is above background */
 }
 
 .read-the-docs {
@@ -69,24 +75,30 @@ body {
 }
 
 .footer {
-  background-color: #333;
-  color: #3acfbb; /* Turquoise text */
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  background-color: rgba(51, 51, 51, 0.7); /* Transparent black background */
+  color: rgba(58, 207, 187, 0.7); /* Semi-transparent turquoise text */
+  text-shadow: 0 0 5px rgba(58, 207, 187, 0.7), 0 0 10px rgba(58, 207, 187, 0.7); /* Glow effect */
   text-align: center;
   padding: 40px; /* Increased padding */
   animation: fadeInUp 1s ease; /* Fade in animation */
+  border-radius: 100px;
+  position: relative; /* Ensure content is above background */
+  z-index: 1; /* Ensure content is above background */
 }
 
 /* Navbar styles */
 .navbar {
-  background-color: #333;
-  color: #3acfbb; /* Turquoise text */
-  width: 100%; /* Full width */
+  background-color: rgba(51, 51, 51, 0.7); /* Transparent black background */
+  color: rgba(58, 207, 187, 0.7); /* Semi-transparent turquoise text */
+  width: 98%; /* Full width */
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+  text-shadow: 0 0 5px rgba(58, 207, 187, 0.7), 0 0 10px rgba(58, 207, 187, 0.7); /* Glow effect */
+  z-index: 1000; /* Higher z-index than particle background */
+  border-radius: 100px;
+  position: relative; /* Ensure content is above background */
 }
 
 .navbar-brand a {
@@ -165,8 +177,19 @@ body {
   border-radius: 8px;
   padding: 20px;
   overflow-y: auto; /* Enable vertical scrollbar */
-  margin-bottom: 10px;
-  background-color: #1a1a1a;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.849); /* Adjusted background color with transparency */
+  animation: glow 1.5s infinite alternate; /* Add glow animation */
+
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 3px #3acfbb, 0 0 5px #3acfbb, 0 0 7px #3acfbb, 0 0 10px #3acfbb;
+  }
+  to {
+    box-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb, 0 0 15px #3acfbb, 0 0 20px #3acfbb;
+  }
 }
 
 .message {
@@ -243,6 +266,8 @@ input[type='text'] {
   border-radius: 5px;
   border: 1px solid #3acfbb;
   background-color: #1a1a1a;
+
+
   color: #ffffff; /* Turquoise text */
   margin-right: 10px;
 }
@@ -265,17 +290,18 @@ button {
 button:hover {
   background-color: #00bfa5;
 }
+
 /* ChatHistoryComponent styles */
 .chat-history {
   width: 100%;
-  max-width: 400px; /* Limit width */
-  background-color: #1a1a1a;
+  max-width: 135px; /* Limit width */
+  background-color: #08070f;
   border: 2px solid #3acfbb;
   border-radius: 8px;
-  padding: 100px;
+  padding: 140px;
   margin-bottom: 20px; /* Add margin */
   margin-top: 20px; /* Add margin */
-  margin-left: 500px; /* Move to the right */
+  margin-left: 420px; /* Move to the right */
 }
 
 .history-window {
@@ -315,3 +341,44 @@ button:hover {
     transform: translateY(0);
   }
 }
+
+/* App.css */
+.background-image {
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  background-image: url('./assets/Jarvis.gif');
+  background-size: cover;
+  background-position: center;
+}
+
+.main-content {
+  position: relative; /* Ensure the background image stays within the main content */
+}
+
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Lower z-index than all other elements */
+}
+
+.typewriter-container {
+  position: absolute; /* Position the typewriter component */
+  top: -10px; /* Align to the top */
+  left: 50%; /* Move to the horizontal center */
+  transform: translateX(-50%); /* Center horizontally */
+  text-align: center; /* Center the text */
+  padding: 20px;
+  margin-top: 20px; /* Adjust margin-top as needed */
+  z-index: 1000;
+}
+
+.digital-text {
+  font-family: 'Digital', 'Oxygen Mono', Consolas, monaco, monospace; /* Use a digital font or monospace */
+  font-size: 2em; /* Adjust size as needed */
+  color: #3acfbb; /* Turquoise text color */
+  text-shadow: 0 0 5px #3acfbb, 0 0 10px #3acfbb; /* Glow effect */
+}
+
