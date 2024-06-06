@@ -1,30 +1,49 @@
-import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useRef } from 'react';
 
 const ChatComponent = ({ setImportedText }) => {
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const chatWindowRef = useRef(null);
 
-  const sendMessage = async () => {
-    if (input.trim() === '') return;
+  const sendMessage = (text, isUser) => {
+    const newMessage = { text: '', isUser };
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
 
-    const userMessage = { text: input, sender: 'user' };
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
-
-    try {
-      // Call the API
-      const response = await axios.post('/process-code', { message: input });
-      const botMessage = { text: response.data.result, sender: 'bot' };
-      setMessages((prevMessages) => [...prevMessages, userMessage, botMessage]);
-    } catch (error) {
-      console.error('Error fetching bot response:', error);
-      const botMessage = { text: 'Error fetching response. Please try again.', sender: 'bot' };
-      setMessages((prevMessages) => [...prevMessages, userMessage, botMessage]);
+    if (!isUser) {
+      let i = 0;
+      const typingInterval = setInterval(() => {
+        if (i < text.length) {
+          setMessages((prevMessages) => {
+            const lastMessage = prevMessages[prevMessages.length - 1];
+            const updatedMessages = [...prevMessages];
+            updatedMessages[updatedMessages.length - 1] = { ...lastMessage, text: lastMessage.text + text[i] };
+            return updatedMessages;
+          });
+          i++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 50); // Typing speed (in milliseconds per character)
+    } else {
+      setMessages((prevMessages) => {
+        const updatedMessages = [...prevMessages];
+        updatedMessages[updatedMessages.length - 1] = { ...newMessage, text };
+        return updatedMessages;
+      });
     }
+  };
 
-    setInput('');
-    setImportedText(input);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim() === '') return;
+
+    sendMessage(inputValue, true);
+    setInputValue('');
+
+    // Simulating bot response
+    setTimeout(() => {
+      sendMessage('This is a simulated bot response.', false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -36,23 +55,24 @@ const ChatComponent = ({ setImportedText }) => {
   return (
     <div className="chat-component">
       <div className="chat-window" ref={chatWindowRef}>
-        {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.sender}`}>
-            {msg.text}
+        {messages.map((message, index) => (
+          <div key={index} className={`message ${message.isUser ? 'user' : 'bot'}`}>
+            {message.text}
           </div>
         ))}
       </div>
-      <div className="input-area">
+      <form onSubmit={handleSubmit} className="input-area">
         <input
           type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Type a message..."
         />
-        <button onClick={sendMessage}>Send</button>
-      </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 };
 
 export default ChatComponent;
+
