@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
 const ChatComponent = ({ setImportedText }) => {
   const [messages, setMessages] = useState([]);
@@ -33,17 +34,35 @@ const ChatComponent = ({ setImportedText }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (inputValue.trim() === '') return;
 
     sendMessage(inputValue, true);
+    const userMessage = inputValue;
     setInputValue('');
 
-    // Simulating bot response
-    setTimeout(() => {
-      sendMessage('This is a simulated bot response.', false);
-    }, 1000);
+    const requestBody = {
+      messages: [...messages, { text: userMessage, isUser: true }],
+    };
+
+    try {
+      const response = await axios.post('http://localhost:3000/process-code', requestBody, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.data) {
+        const botResponse = response.data.result; // Assuming the backend sends the result in `response.data.result`
+        sendMessage(botResponse, false);
+      } else {
+        sendMessage('Error: No response from API.', false);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      sendMessage('An unexpected error occurred.', false);
+    }
   };
 
   useEffect(() => {
