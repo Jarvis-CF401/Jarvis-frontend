@@ -66,7 +66,7 @@ const ChatComponent = ({ setImportedText }) => {
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Type a message..."
+          placeholder="How may I assist you?"
         />
         <button type="submit">Submit</button>
       </form>
