@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PrivateRoute from './components/PrivateRoute';
 import ChatComponent from './components/ChatComponent';
 import Signup from './components/Signup';
 import Login from './components/Login';

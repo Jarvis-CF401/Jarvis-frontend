@@ -15,21 +15,21 @@ const ChatComponent = ({ setImportedText }) => {
     e.preventDefault();
     if (inputValue.trim() === '') return;
 
-    // Send user message
     sendMessage(inputValue, true);
     setInputValue('');
-
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
         'http://localhost:3000/process-code',
-        { messages: [{ role: 'user', content: inputValue }] },
+        { messages: [
+          { role: 'system', content: 'You are an AI coding assistant that can help me with my code and computer science concepts, you will not respond to any other queries outside of this scope.'},
+          { role: 'user', content: inputValue }
+        ] },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       console.log('This is the response:', response.data);
       const botResponse = response.data.result.content;
 
-      // Send bot response
       sendMessage(botResponse, false);
     } catch (error) {
       console.error('Error fetching data:', error);

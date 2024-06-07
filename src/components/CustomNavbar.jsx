@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { FaBars } from 'react-icons/fa'; // Import Font Awesome icon
-import Logo from '../assets/logo.jpg'; // Import logo image
-import ChatHistory from './ChatHistory'; // Import ChatHistory component
-import TypewriterComponent from './TypewriterComponent'; // Import TypewriterComponent
-import { useAuth0 } from '@auth0/auth0-react'; // Import Auth0 hooks
+import { FaBars } from 'react-icons/fa'; 
+import Logo from '../assets/logo.jpg'; 
+import ChatHistory from './ChatHistory'; 
+import TypewriterComponent from './TypewriterComponent'; 
+import { useAuth0 } from '@auth0/auth0-react'; 
 
 function Navbar() {
-  const { logout } = useAuth0(); // Use Auth0 hook for logout
+  const { logout } = useAuth0();
   const [offCanvasOpen, setOffCanvasOpen] = useState(false);
-  const [showChatHistory, setShowChatHistory] = useState(false); // New state for chat history visibility
+  const [showChatHistory, setShowChatHistory] = useState(false); 
 
   const toggleOffCanvas = () => {
     setOffCanvasOpen(!offCanvasOpen);
@@ -51,13 +51,13 @@ function Navbar() {
         </div>
         <div className="offcanvas-body">
           <ChatHistory
-            messages={[]} // Pass your messages array here
+            messages={[]}
             isOpen={showChatHistory}
             onClose={toggleChatHistory}
           />
         </div>
       </div>
-      <button onClick={() => logout({ returnTo: window.location.origin })} style={{ marginLeft: '10px' }}>
+      <button onClick={() => logout({ returnTo: `${window.location.origin}/login` })} style={{      marginLeft: '10px' }}>
         Logout
       </button>
     </nav>
