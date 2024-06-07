@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const ChatComponent = ({ setImportedText }) => {
+  const { getAccessTokenSilently } = useAuth0();
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const chatWindowRef = useRef(null);
 
-  const sendMessage = (text, isUser) => {
+  const sendMessage = async (text, isUser) => {
     const newMessage = { text: '', isUser };
     setMessages((prevMessages) => [...prevMessages, newMessage]);
 
@@ -33,17 +36,26 @@ const ChatComponent = ({ setImportedText }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (inputValue.trim() === '') return;
 
     sendMessage(inputValue, true);
     setInputValue('');
 
-    // Simulating bot response
-    setTimeout(() => {
-      sendMessage('This is a simulated bot response.', false);
-    }, 1000);
+    try {
+      const token = await getAccessTokenSilently();
+      const response = await axios.post(
+        'http://localhost:3000/process-code',
+        { messages: [{ role: 'user', content: inputValue }] },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      const botResponse = response.data.result.choices[0].message.content;
+      sendMessage(botResponse, false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      sendMessage('Sorry, something went wrong. Please try again later.', false);
+    }
   };
 
   useEffect(() => {
@@ -75,4 +87,3 @@ const ChatComponent = ({ setImportedText }) => {
 };
 
 export default ChatComponent;
-

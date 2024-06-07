@@ -3,8 +3,10 @@ import { FaBars } from 'react-icons/fa'; // Import Font Awesome icon
 import Logo from '../assets/logo.jpg'; // Import logo image
 import ChatHistory from './ChatHistory'; // Import ChatHistory component
 import TypewriterComponent from './TypewriterComponent'; // Import TypewriterComponent
+import { useAuth0 } from '@auth0/auth0-react'; // Import Auth0 hooks
 
 function Navbar() {
+  const { logout } = useAuth0(); // Use Auth0 hook for logout
   const [offCanvasOpen, setOffCanvasOpen] = useState(false);
   const [showChatHistory, setShowChatHistory] = useState(false); // New state for chat history visibility
 
@@ -56,9 +58,11 @@ function Navbar() {
         </div>
       </div>
       <button className="offcanvas-toggle-btn" onClick={toggleOffCanvas} style={{ marginLeft: '10px' }}>
-      History--
+        History--
       </button>
-
+      <button onClick={() => logout({ returnTo: window.location.origin })} style={{ marginLeft: '10px' }}>
+        Logout
+      </button>
     </nav>
   );
 }
