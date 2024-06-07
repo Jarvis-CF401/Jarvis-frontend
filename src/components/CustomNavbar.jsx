@@ -57,9 +57,6 @@ function Navbar() {
           />
         </div>
       </div>
-      <button className="offcanvas-toggle-btn" onClick={toggleOffCanvas} style={{ marginLeft: '10px' }}>
-        History--
-      </button>
       <button onClick={() => logout({ returnTo: window.location.origin })} style={{ marginLeft: '10px' }}>
         Logout
       </button>

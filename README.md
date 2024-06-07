@@ -41,6 +41,7 @@ Version 1.0.0
 - Kawika Reveira
 - Ahmed Elnogoumi
 - Mark Trnka
+- Isai Chaidez
 
 # React + Vite
 
