@@ -4,7 +4,6 @@ import Navbar from './components/CustomNavbar';
 import ChatComponent from './components/ChatComponent';
 import ParticleBackground from './components/ParticleBackground';
 
-
 function App() {
   const [importedText, setImportedText] = useState('');
   const [messages, setMessages] = useState([]);
@@ -16,6 +15,8 @@ function App() {
         <Navbar />
       </header>
       <main className="main-content">
+        {/* Render the LeftMenu component */}
+    
         <ChatComponent
           setImportedText={setImportedText}
           messages={messages}
@@ -23,10 +24,12 @@ function App() {
         />
       </main>
       <footer className="footer">
-        <p>&copy; 2024 My Techy App. All rights reserved.</p>
+        <p>&copy; Copyright-J.A.R.V.I.S.</p>
+        <p>(Code 401)</p>
       </footer>
     </div>
   );
 }
 
 export default App;
+

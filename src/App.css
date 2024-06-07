@@ -167,6 +167,8 @@ body {
   text-shadow: 0 0 7px #3acfbb, 0 0 10px #3acfbb;
   animation-name: fadeInRight;
   font-family: 'Lucida Console';
+  font-weight: light;
+  max-width: 95%; /* Adjust the percentage to your preference */
 }
 
 .message.bot {
@@ -178,6 +180,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
   border-right: 4px solid #3acfbb;
+  max-width: 95%; /* Adjust the percentage to your preference */
 }
 
 @keyframes fadeInRight {
@@ -267,6 +270,7 @@ button:hover {
   margin-bottom: 60px; /* Adjust to push content above footer */
   max-height: calc(100vh - 120px); /* Adjust for navbar and footer height */
   overflow-y: auto; /* Add scrollbar if content exceeds available height */
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -370,3 +374,4 @@ button:hover {
   height: calc(100% - 40px); /* Adjust padding and height as needed */
   overflow-y: auto;
 }
+
