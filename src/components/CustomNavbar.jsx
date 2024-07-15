@@ -57,10 +57,10 @@ function Navbar() {
           />
         </div>
       </div>
-      <button onClick={() => logout({ returnTo: `${window.location.origin}/login` })} style={{      marginLeft: '10px' }}>
+      <button onClick={() => logout({ returnTo: 'http://localhost:5173/login' })} style={{      marginLeft: '10px' }}>
         Logout
       </button>
-    </nav>
+    </nav> 
   );
 }
 
