@@ -64,11 +64,11 @@ const ParticleBackground = () => {
           default: "bounce",
         },
         random: true,
-        speed: { min: 1, max: 3 }, // Speed range for blinking effect
+        speed: { min: 1, max: 3 },
         straight: false,
         animation: {
           enable: true,
-          speed: { min: 10, max: 20 }, // Speed range for blinking animation
+          speed: { min: 10, max: 20 },
           sync: true,
         },
       },

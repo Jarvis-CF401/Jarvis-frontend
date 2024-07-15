@@ -235,8 +235,28 @@ input[type='text'] {
   font-family: 'Lucida Console', Monaco, monospace;
 }
 
-input[type='text']:focus {
-  border-color: #00bfa5;
+input[type='password'] {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #3acfbb;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  margin-right: 10px;
+  font-family: 'Lucida Console', Monaco, monospace;
+}
+
+input[type='email'] {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #3acfbb;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  margin-right: 10px;
+  font-family: 'Lucida Console', Monaco, monospace;
 }
 
 button {
